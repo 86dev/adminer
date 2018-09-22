@@ -1,0 +1,7 @@
+# Maximum allowed size for uploaded files.
+php_value upload_max_filesize 256M
+
+# Must be greater than or equal to upload_max_filesize
+php_value post_max_size 256M
+
+php_value memory_limit 512M
