@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+
 function adminer_object() {
 	// required to run any plugin
 	include_once "./plugins/plugin.php";
@@ -21,7 +23,6 @@ function adminer_object() {
 		new AdminerDumpAlter,
 		new AdminerJsonColumn,
 		new AdminerTablesFilter,
-		//new AdminerLoginServers($servers),
 	);
 
 	/* It is possible to combine customization and plugins:
@@ -34,5 +35,5 @@ function adminer_object() {
 }
 
 // include original Adminer or Adminer Editor
-include "./adminer-4.6.3.php";
+include "./adminer-4.7.1.php";
 ?>

@@ -30,7 +30,7 @@
 
 			adminerDesign.setPositions();
 			adminerDesign.setTables();
-			adminerDesign.setSensor();
+			// adminerDesign.setSensor();
 			adminerDesign.setScroller();
 		},
 
