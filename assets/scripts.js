@@ -30,7 +30,7 @@
 
 			adminerDesign.setPositions();
 			adminerDesign.setTables();
-			// adminerDesign.setSensor();
+			adminerDesign.setSensor();
 			adminerDesign.setScroller();
 		},
 
@@ -223,7 +223,7 @@
 
 			toggleMenu(localStorage.getItem('menu'));
 
-			sensor.addEventListener('mouseover', function() {
+			sensor.addEventListener('click', function() {
 				var state = localStorage.getItem('menu') === 'open' ? 'closed' : 'open';
 				toggleMenu(state);
 			});
