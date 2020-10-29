@@ -5,10 +5,6 @@
 	border-bottom: 1px solid #ccc;
 } */
 
-#logins {
-	padding: 0;
-}
-
 #sensor {
 	box-sizing: border-box;
 	padding: 12px 5px;
@@ -21,4 +17,8 @@
 #sensor::after {
 	font-family: "FontAwesome";
 	content: "\f08d";
+}
+
+textarea {
+	resize: vertical;
 }
