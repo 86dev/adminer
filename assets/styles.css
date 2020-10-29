@@ -176,9 +176,11 @@ table select {
 #login-form input[type=checkbox] {
 	box-sizing: unset;
 	width: auto;
+}
+#login-form label {
+	display: inline-block;
 	margin-top: 20px;
 }
-
 fieldset {
 	display: inline;
 	vertical-align: top;
@@ -707,6 +709,7 @@ p.nowrap {
 }
 
 #menu p,
+#logins,
 #tables {
 	padding: 0;
 	margin: 0;
@@ -750,6 +753,7 @@ p.nowrap {
 }
 
 #logins a,
+/* #logins li, */
 #tables li {
 	list-style: none;
 	padding: 10px 15px;
@@ -846,6 +850,11 @@ p.nowrap {
 
 #dbs select {
 	width: 100%;
+}
+
+#dbs input[name=db] {
+	width: 150px;
+	margin-right: 10px;
 }
 
 #menu .links {
