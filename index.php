@@ -12,6 +12,7 @@ function adminer_object() {
 
 	$plugins = array(
 		// specify enabled plugins here
+		new AdminerTablesFilter,
 		new AdminerBootstrapLike,
 		new AdminerEditForeign,
 		new AdminerForeignSystem,
@@ -22,7 +23,6 @@ function adminer_object() {
 		new AdminerDumpJson,
 		new AdminerDumpAlter,
 		new AdminerJsonColumn,
-		new AdminerTablesFilter,
 	);
 
 	/* It is possible to combine customization and plugins:

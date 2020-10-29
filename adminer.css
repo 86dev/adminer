@@ -22,3 +22,20 @@
 textarea {
 	resize: vertical;
 }
+
+#tables a[href*="&select="]::before, .rtl #tables a[href*="&select="]::after {
+	content: none;
+}
+
+#tables a[href*="&select="] {
+	font-size: 14px;
+}
+
+#tables a[href*="&table="]::before, .rtl #tables a[href*="&table="]::after {
+	content: "\f0ce";
+	color: #337ab7;
+}
+
+#tables a[href*="&table="] {
+	font-size: 0;
+}

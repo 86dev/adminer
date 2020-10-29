@@ -15,6 +15,8 @@
 class AdminerBootstrapLike
 {
 	var $dev;
+	/** @var Adminer */
+	var $adminer = null;
 
 	/**
 	 * Class constructor
@@ -24,6 +26,7 @@ class AdminerBootstrapLike
 	public function __construct($dev = false)
 	{
 		$this->dev = $dev;
+		$this->adminer = new Adminer();
 	}
 
 	function head()
@@ -53,5 +56,33 @@ class AdminerBootstrapLike
 	{
 		return '<a href="./" id="h1">Adminer</a>'
 		. '<div id="scroller"><a href="#"></a><a href="#"></a></div>';
+	}
+
+	/**
+	 * Prints table list in menu
+	 * @param array result of table_status('', true)
+	 * @return null
+	 */
+	function tablesPrint($tables) {
+		echo "<ul id='tables' class='test'>" . script("mixin(qs('#tables'), {onmouseover: menuOver, onmouseout: menuOut});");
+		foreach ($tables as $table => $status) {
+			$name = $this->adminer->tableName($status);
+			if ($name != "") {
+				echo '<li>';
+
+				echo (support("table") || support("indexes")
+					? '<a href="' . h(ME) . 'table=' . urlencode($table) . '"'
+						. bold(in_array($table, array($_GET["table"], $_GET["create"], $_GET["indexes"], $_GET["foreign"], $_GET["trigger"])), (is_view($status) ? "view" : "structure"))
+						. " title='" . lang('Show structure') . "'>$name</a>"
+					: "<span>$name</span>"
+				);
+
+				echo '<a href="' . h(ME) . 'select=' . urlencode($table) . '"' . bold($_GET["select"] == $table || $_GET["edit"] == $table, "select") . ' title="'.lang('select').'">' . $name . "</a> ";
+
+				echo "\n";
+			}
+		}
+		echo "</ul>\n";
+		return false;
 	}
 }
