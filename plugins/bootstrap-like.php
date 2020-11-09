@@ -77,7 +77,7 @@ class AdminerBootstrapLike
 					: "<span>$name</span>"
 				);
 
-				echo '<a href="' . h(ME) . 'select=' . urlencode($table) . '"' . bold($_GET["select"] == $table || $_GET["edit"] == $table, "select") . ' title="'.lang('select').'">' . $name . "</a> ";
+				echo '<a href="' . h(ME) . 'select=' . urlencode($table) . '"' . bold($_GET["select"] == $table || $_GET["edit"] == $table, "select") . ' title="'.$name.'">' . $name . "</a> ";
 
 				echo "\n";
 			}
