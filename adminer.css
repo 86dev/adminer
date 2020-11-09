@@ -24,7 +24,7 @@ textarea {
 }
 
 #tables a[href*="&select="]::before, .rtl #tables a[href*="&select="]::after {
-	content: none;
+	padding-right: 4px;
 }
 
 #tables a[href*="&select="] {
@@ -32,10 +32,15 @@ textarea {
 }
 
 #tables a[href*="&table="]::before, .rtl #tables a[href*="&table="]::after {
-	content: "\f0ce";
+	content: "\f1c0";
 	color: #337ab7;
+	padding-right: 4px;
 }
 
 #tables a[href*="&table="] {
 	font-size: 0;
+}
+
+pre.sqlarea {
+	resize: both !important;
 }
