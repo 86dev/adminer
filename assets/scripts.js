@@ -32,6 +32,17 @@
 			adminerDesign.setTables();
 			adminerDesign.setSensor();
 			adminerDesign.setScroller();
+
+			document.querySelectorAll("pre.sqlarea").forEach(item => {
+				console.log(item);
+				item.addEventListener("keydown", function(e) {
+					if (e.keyCode === 9) {
+						document.execCommand('insertText', false, "\t");
+						e.preventDefault();
+						return false;
+					}
+				});
+			});
 		},
 
 		setScroller: function () {
