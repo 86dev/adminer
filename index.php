@@ -1,35 +1,60 @@
 <?php
-error_reporting(E_ALL);
+
+$PLUGINS_LIST = [
+	// (object)[
+	// 	'file' => './plugins/tables-filter.php',
+	// 	'class' => 'AdminerTablesFilter',
+	// ],
+	// (object)[
+	// 	'file' => './plugins/bootstrap-like.php',
+	// 	'class' => 'AdminerBootstrapLike',
+	// ],
+	// (object)[
+	// 	'file' => './plugins/edit-foreign.php',
+	// 	'class' => 'AdminerEditForeign',
+	// ],
+	// (object)[
+	// 	'file' => './plugins/foreign-system.php',
+	// 	'class' => 'AdminerForeignSystem',
+	// ],
+	// (object)[
+	// 	'file' => './plugins/login-sqlite.php',
+	// 	'class' => 'AdminerLoginSqlite',
+	// ],
+	// (object)[
+	// 	'file' => './plugins/floatThead.php',
+	// 	'class' => 'AdminerFloatThead',
+	// ],
+	// (object)[
+	// 	'file' => './plugins/edit-calendar.php',
+	// 	'class' => 'AdminerEditCalendar',
+	// ],
+	// (object)[
+	// 	'file' => './plugins/dump-json.php',
+	// 	'class' => 'AdminerDumpJson',
+	// ],
+	// (object)[
+	// 	'file' => './plugins/dump-yaml.php',
+	// 	'class' => 'AdminerDumpYaml',
+	// ],
+	// (object)[
+	// 	'file' => './plugins/dump-alter.php',
+	// 	'class' => 'AdminerDumpAlter',
+	// ],
+	// (object)[
+	// 	'file' => './plugins/json-column.php',
+	// 	'class' => 'AdminerJsonColumn',
+	// ],
+];
 
 function adminer_object() {
-	// required to run any plugin
 	include_once "./plugins/plugin.php";
 
-	// autoloader
-	foreach (glob("./plugins/*.php") as $filename) {
-		include_once "./$filename";
+	global $PLUGINS_LIST;
+	foreach ($PLUGINS_LIST as $plugin) {
+		require_once $plugin->file;
+		$plugins[] = new ($plugin->class)();
 	}
-
-	$plugins = array(
-		// specify enabled plugins here
-		new AdminerTablesFilter,
-		new AdminerBootstrapLike,
-		new AdminerEditForeign,
-		new AdminerForeignSystem,
-		new AdminerFrames,
-		new AdminerLoginSqlite,
-		new AdminerFloatThead,
-		new AdminerEditCalendar,
-		new AdminerDumpJson,
-		new AdminerDumpAlter,
-		new AdminerJsonColumn,
-	);
-
-	/* It is possible to combine customization and plugins:
-	class AdminerCustomization extends AdminerPlugin {
-	}
-	return new AdminerCustomization($plugins);
-	*/
 
 	return new AdminerPlugin($plugins);
 }
