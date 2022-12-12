@@ -48,6 +48,10 @@ pre.sqlarea {
 	tab-size: 4;
 }
 
-#logins {
+#logins, #tables {
 	height: auto !important;
+}
+#tables {
+	top: 250px;
+	bottom: 0;
 }
